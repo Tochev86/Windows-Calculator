@@ -1,0 +1,26 @@
+c:\users\stefan\documents\visual studio 2013\Projects\Windows Calculator\Windows Calculator\bin\Debug\Windows Calculator.exe.config
+c:\users\stefan\documents\visual studio 2013\Projects\Windows Calculator\Windows Calculator\bin\Debug\Windows Calculator.exe
+c:\users\stefan\documents\visual studio 2013\Projects\Windows Calculator\Windows Calculator\bin\Debug\Windows Calculator.pdb
+c:\users\stefan\documents\visual studio 2013\Projects\Windows Calculator\Windows Calculator\obj\Debug\Windows Calculator.csprojResolveAssemblyReference.cache
+c:\users\stefan\documents\visual studio 2013\Projects\Windows Calculator\Windows Calculator\obj\Debug\App.g.cs
+c:\users\stefan\documents\visual studio 2013\Projects\Windows Calculator\Windows Calculator\obj\Debug\Windows Calculator_MarkupCompile.cache
+c:\users\stefan\documents\visual studio 2013\Projects\Windows Calculator\Windows Calculator\obj\Debug\Windows Calculator.g.resources
+c:\users\stefan\documents\visual studio 2013\Projects\Windows Calculator\Windows Calculator\obj\Debug\Windows_Calculator.Properties.Resources.resources
+c:\users\stefan\documents\visual studio 2013\Projects\Windows Calculator\Windows Calculator\obj\Debug\Windows Calculator.csproj.GenerateResource.Cache
+c:\users\stefan\documents\visual studio 2013\Projects\Windows Calculator\Windows Calculator\obj\Debug\Windows Calculator.exe
+c:\users\stefan\documents\visual studio 2013\Projects\Windows Calculator\Windows Calculator\obj\Debug\Windows Calculator.pdb
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\Windows Calculator\Windows Calculator\obj\Debug\Calculator.baml
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\Windows Calculator\Windows Calculator\obj\Debug\Calculator.g.cs
+C:\Users\Stefan\Desktop\Windows Calculator\Windows Calculator\bin\Debug\Windows Calculator.exe.config
+C:\Users\Stefan\Desktop\Windows Calculator\Windows Calculator\obj\Debug\Windows Calculator.exe
+C:\Users\Stefan\Desktop\Windows Calculator\Windows Calculator\obj\Debug\Windows Calculator.pdb
+C:\Users\Stefan\Desktop\Windows Calculator\Windows Calculator\bin\Debug\Windows Calculator.exe
+C:\Users\Stefan\Desktop\Windows Calculator\Windows Calculator\bin\Debug\Windows Calculator.pdb
+C:\Users\Stefan\Desktop\Windows Calculator\Windows Calculator\obj\Debug\Windows Calculator.csprojResolveAssemblyReference.cache
+C:\Users\Stefan\Desktop\Windows Calculator\Windows Calculator\obj\Debug\Calculator.baml
+C:\Users\Stefan\Desktop\Windows Calculator\Windows Calculator\obj\Debug\Calculator.g.cs
+C:\Users\Stefan\Desktop\Windows Calculator\Windows Calculator\obj\Debug\App.g.cs
+C:\Users\Stefan\Desktop\Windows Calculator\Windows Calculator\obj\Debug\Windows Calculator_MarkupCompile.cache
+C:\Users\Stefan\Desktop\Windows Calculator\Windows Calculator\obj\Debug\Windows Calculator.g.resources
+C:\Users\Stefan\Desktop\Windows Calculator\Windows Calculator\obj\Debug\Windows_Calculator.Properties.Resources.resources
+C:\Users\Stefan\Desktop\Windows Calculator\Windows Calculator\obj\Debug\Windows Calculator.csproj.GenerateResource.Cache

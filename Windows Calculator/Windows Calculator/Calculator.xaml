@@ -1,0 +1,357 @@
+﻿<Window x:Class="Windows_Calculator.MainWindow "
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Icon="icon's/Calculator_Windows_7_Icon.png"
+        Title="Calculator" Height="320" Width="230" 
+        ResizeMode="CanMinimize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <RoutedUICommand x:Key="button0" Text="text" />
+            <RoutedUICommand x:Key="button1" Text="Text" />
+            <RoutedUICommand x:Key="button2" Text="text" />
+            <RoutedUICommand x:Key="button3" Text="text" />
+            <RoutedUICommand x:Key="button4" Text="text" />
+            <RoutedUICommand x:Key="button5" Text="text" />
+            <RoutedUICommand x:Key="button6" Text="text" />
+            <RoutedUICommand x:Key="button7" Text="text" />
+            <RoutedUICommand x:Key="button8" Text="text" />
+            <RoutedUICommand x:Key="button9" Text="text" />
+            <RoutedUICommand x:Key="backSpace" Text="text" />
+            <RoutedUICommand x:Key="equal" Text="text" />
+            <RoutedUICommand x:Key="comma" Text="text" />
+            <RoutedUICommand x:Key="plus" Text="text" />
+            <RoutedUICommand x:Key="minus" Text="text" />
+            <RoutedUICommand x:Key="divide" Text="text" />
+            <RoutedUICommand x:Key="multiply" Text="text" />
+            <RoutedUICommand x:Key="ce" Text="text" />
+            <RoutedUICommand x:Key="c" Text="text" />
+            <RoutedUICommand x:Key="reciprocal" Text="text" />
+            <RoutedUICommand x:Key="percent" Text="text" />
+            <RoutedUICommand x:Key="negativePositive" Text="text" />
+            <RoutedUICommand x:Key="squareRoot" Text="text" />
+            <RoutedUICommand x:Key="copy" Text="text" />
+            <RoutedUICommand x:Key="paste" Text="text" />
+            <RoutedUICommand x:Key="ms" Text="text" />
+            <RoutedUICommand x:Key="mr" Text="text" />
+            <RoutedUICommand x:Key="mc" Text="text" />
+            <RoutedUICommand x:Key="mPlus" Text="text" />
+            <RoutedUICommand x:Key="mMinus" Text="text" />
+            <LinearGradientBrush x:Key="ButtonBackground" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#eaf1f8" Offset="0.5"/>
+                <GradientStop Color="#d5e0ee" Offset="0.5"/>
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="MouseOverSpecialButton" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#ffce67" Offset="0.6"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="MouseOverSimpleButton" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#E8E5D7" Offset="0.5"/>
+                <GradientStop Color="#ffcf69" Offset="0.5"/>
+                <GradientStop Color="White" Offset="1.4"/>
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="ButtonPressed" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#f4cd89" Offset="0.5"/>
+                <GradientStop Color="#f5bb56" Offset="0.5"/>
+                <GradientStop Color="White" Offset="1.4"/>
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="LabelBackgound" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#ffffff" Offset="0.7"/>
+                <GradientStop Color="#e6effb" Offset="0.3"/>
+            </LinearGradientBrush>
+            <Style x:Key="menuButtonStyles" TargetType="{x:Type Button}">
+                <Setter Property="Margin" Value="0.5 0 2 0" />
+                <Setter Property="Padding" Value="4 0 4 1" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="FontWeight" Value="Medium" />
+                <Setter Property="FontFamily" Value="Arial" />
+                <Setter  Property="BorderBrush" Value="Transparent" />
+                <Setter Property="Background" Value="Transparent" />
+            </Style>
+            <Style x:Key="italicX" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontStyle" Value="Italic"/>
+                <Setter Property="FontFamily" Value="AngsanaUPC" />
+                <Setter Property="FontSize" Value="18" />
+            </Style>
+            <Style x:Key="boldStyled" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontFamily" Value="Impact" />
+            </Style>
+            <Style x:Key="specialButtonsStyles" TargetType="{x:Type Button}">
+                <Setter Property="Margin" Value="0 2 4 2" />
+                <Setter Property="FontSize" Value="11" />
+                <Setter Property="FontWeight" Value="Medium" />
+                <Setter Property="FontFamily" Value="Verdana" />
+                <Setter Property="Foreground" Value="#1e395b"/>
+                <Setter Property="Background" Value="#D3EDFF" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Grid>
+                                <Border VerticalAlignment="Stretch" CornerRadius="2" HorizontalAlignment="Stretch" BorderThickness="1" BorderBrush="Gray"/>
+                                <Border x:Name="MouseOverSpecialButton"  Opacity="0" Background="{StaticResource MouseOverSpecialButton}" VerticalAlignment="Stretch" CornerRadius="1" HorizontalAlignment="Stretch" BorderBrush="#EFE294" BorderThickness="2.5"/>
+                                <Border x:Name="ButtonPressed"  Opacity="0" Background="{StaticResource ButtonPressed}" VerticalAlignment="Stretch" CornerRadius="1" HorizontalAlignment="Stretch" BorderBrush="#c29b28" BorderThickness="1"/>
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="MainContent" />
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="MouseOverSpecialButton" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="MouseOverSpecialButton" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:1.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="ButtonPressed" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.1"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="ButtonPressed" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.4"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="simpleButtonsStyles" TargetType="{x:Type Button}">
+                <Setter Property="Margin" Value="0 2 4 2" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="FontWeight" Value="Medium" />
+                <Setter Property="FontFamily" Value="Verdana" />
+                <Setter Property="Foreground" Value="#1e395b"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Grid>
+                                <Border Background="{StaticResource ButtonBackground}" VerticalAlignment="Stretch" CornerRadius="2" HorizontalAlignment="Stretch" BorderThickness="1" BorderBrush="Gray"/>
+                                <Border x:Name="MouseOverSimpleButton"  Opacity="0" Background="{StaticResource MouseOverSimpleButton}" VerticalAlignment="Stretch" CornerRadius="1" HorizontalAlignment="Stretch" BorderBrush="#ffdb00" BorderThickness="1"/>
+                                <Border x:Name="ButtonPressed"  Opacity="0" Background="{StaticResource ButtonPressed}" VerticalAlignment="Stretch" CornerRadius="1" HorizontalAlignment="Stretch" BorderBrush="#c29b28" BorderThickness="1"/>
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="MainContent" />
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="MouseOverSimpleButton" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="MouseOverSimpleButton" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:1.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="ButtonPressed" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.1"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="ButtonPressed" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.4"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Window.CommandBindings>
+        <CommandBinding Executed="button_0" Command="{StaticResource button0}" />
+        <CommandBinding Executed="button_1" Command="{StaticResource button1}" />
+        <CommandBinding Executed="button_2" Command="{StaticResource button2}" />
+        <CommandBinding Executed="button_3" Command="{StaticResource button3}" />
+        <CommandBinding Executed="button_4" Command="{StaticResource button4}" />
+        <CommandBinding Executed="button_5" Command="{StaticResource button5}" />
+        <CommandBinding Executed="button_6" Command="{StaticResource button6}" />
+        <CommandBinding Executed="button_7" Command="{StaticResource button7}" />
+        <CommandBinding Executed="button_8" Command="{StaticResource button8}" />
+        <CommandBinding Executed="button_9" Command="{StaticResource button9}" />
+        <CommandBinding Executed="button_BackSpace" Command="{StaticResource backSpace}" />
+        <CommandBinding Executed="button_Equal" Command="{StaticResource equal}" />
+        <CommandBinding Executed="button_Comma" Command="{StaticResource comma}" />
+        <CommandBinding Executed="button_Plus" Command="{StaticResource plus}" />
+        <CommandBinding Executed="button_Minus" Command="{StaticResource minus}" />
+        <CommandBinding Executed="button_Divide" Command="{StaticResource divide}" />
+        <CommandBinding Executed="button_Multiply" Command="{StaticResource multiply}" />
+        <CommandBinding Executed="button_CE" Command="{StaticResource ce}" />
+        <CommandBinding Executed="button_C" Command="{StaticResource c}" />
+        <CommandBinding Executed="button_Reciprocal" Command="{StaticResource reciprocal}" />
+        <CommandBinding Executed="button_Percent" Command="{StaticResource percent}" />
+        <CommandBinding Executed="ButtonNegative_Positive" Command="{StaticResource negativePositive}" />
+        <CommandBinding Executed="ButtonSquareRoot" Command="{StaticResource squareRoot}" />
+        <CommandBinding Executed="ButtonCopy" Command="{StaticResource copy}" />
+        <CommandBinding Executed="ButtonPaste" Command="{StaticResource paste}" />
+        <CommandBinding Executed="ButtonMS" Command="{StaticResource ms}" />
+        <CommandBinding Executed="ButtonMR" Command="{StaticResource mr}" />
+        <CommandBinding Executed="ButtonMC" Command="{StaticResource mc}" />
+        <CommandBinding Executed="ButtonMPlus" Command="{StaticResource mPlus}" />
+        <CommandBinding Executed="ButtonMMinus" Command="{StaticResource mMinus}" />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Key="NumPad0" Command="{StaticResource button0}" />
+        <KeyBinding Key="NumPad1" Command="{StaticResource button1}" />
+        <KeyBinding Key="NumPad2" Command="{StaticResource button2}" />
+        <KeyBinding Key="NumPad3" Command="{StaticResource button3}" />
+        <KeyBinding Key="NumPad4" Command="{StaticResource button4}" />
+        <KeyBinding Key="NumPad5" Command="{StaticResource button5}" />
+        <KeyBinding Key="NumPad6" Command="{StaticResource button6}" />
+        <KeyBinding Key="NumPad7" Command="{StaticResource button7}" />
+        <KeyBinding Key="NumPad8" Command="{StaticResource button8}" />
+        <KeyBinding Key="NumPad9" Command="{StaticResource button9}" />
+        <KeyBinding Key="D0" Command="{StaticResource button0}" />
+        <KeyBinding Key="D1" Command="{StaticResource button1}" />
+        <KeyBinding Key="D2" Command="{StaticResource button2}" />
+        <KeyBinding Key="D3" Command="{StaticResource button3}" />
+        <KeyBinding Key="D4" Command="{StaticResource button4}" />
+        <KeyBinding Key="D5" Command="{StaticResource button5}" />
+        <KeyBinding Key="D6" Command="{StaticResource button6}" />
+        <KeyBinding Key="D7" Command="{StaticResource button7}" />
+        <KeyBinding Key="D8" Command="{StaticResource button8}" />
+        <KeyBinding Key="D9" Command="{StaticResource button9}" />
+        <KeyBinding Key="Back" Command="{StaticResource backSpace}" />
+        <KeyBinding Key="Enter" Command="{StaticResource equal}" />
+        <KeyBinding Key="OemPlus" Command="{StaticResource equal}" />
+        <KeyBinding Key="Decimal" Command="{StaticResource comma}" />
+        <KeyBinding Key="OemComma" Command="{StaticResource comma}" />
+        <KeyBinding Key="OemPeriod" Command="{StaticResource comma}" />
+        <KeyBinding Key="Add" Command="{StaticResource plus}" />
+        <KeyBinding Key="OemPlus" Modifiers="Shift" Command="{StaticResource plus}" />
+        <KeyBinding Key="OemMinus" Command="{StaticResource minus}" />
+        <KeyBinding Key="Subtract" Command="{StaticResource minus}" />
+        <KeyBinding Key="Divide" Command="{StaticResource divide}" />
+        <KeyBinding Key="OemQuestion" Command="{StaticResource divide}" />
+        <KeyBinding Key="Multiply" Command="{StaticResource multiply}" />
+        <KeyBinding Key="D8" Modifiers="Shift" Command="{StaticResource multiply}" />
+        <KeyBinding Key="Delete" Command="{StaticResource ce}" />
+        <KeyBinding Key="Escape" Command="{StaticResource c}" />
+        <KeyBinding Key="R" Command="{StaticResource reciprocal}" />
+        <KeyBinding Key="D5" Modifiers="Shift" Command="{StaticResource percent}" />
+        <KeyBinding Key="F9" Command="{StaticResource negativePositive}" />
+        <KeyBinding Key="D2" Modifiers="Shift" Command="{StaticResource squareRoot}" />
+        <KeyBinding Key="C" Modifiers="Control" Command="{StaticResource copy}" />
+        <KeyBinding Key="V" Modifiers="Control" Command="{StaticResource paste}" />
+        <KeyBinding Key="M" Modifiers="Control" Command="{StaticResource ms}" />
+        <KeyBinding Key="R" Modifiers="Control" Command="{StaticResource mr}" />
+        <KeyBinding Key="L" Modifiers="Control" Command="{StaticResource mc}" />
+        <KeyBinding Key="P" Modifiers="Control" Command="{StaticResource mPlus}" />
+        <KeyBinding Key="Q" Modifiers="Control" Command="{StaticResource mMinus}" />
+    </Window.InputBindings>
+    <StackPanel>
+        <StackPanel.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="White" Offset="0"/>
+                <GradientStop Color="#d9e4f1" Offset="0.2"/>
+            </LinearGradientBrush>
+        </StackPanel.Background>
+        <Border BorderBrush="#AAAAAA" BorderThickness="1">
+            <WrapPanel Height="18">
+                <WrapPanel.Background>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="White" Offset="0.2"/>
+                        <GradientStop Color="#d4dbed" Offset="0.5"/>
+                        <GradientStop Color="White" Offset="1.8"/>
+                    </LinearGradientBrush>
+                </WrapPanel.Background>
+                <Button Name="view" Style="{StaticResource menuButtonStyles}">View</Button>
+                <Button Name="edit" Style="{StaticResource menuButtonStyles}">Edit</Button>
+                <Button Name="help" Style="{StaticResource menuButtonStyles}">Help</Button>
+            </WrapPanel>
+        </Border>
+        <Grid>
+            <Grid.ContextMenu>
+                <ContextMenu Name="contextMenu" StaysOpen="true" Background="Cornsilk">
+                    <MenuItem Header="Copy" Name="copyButton" Click="ButtonCopy"></MenuItem>
+                    <MenuItem Header="Paste" Name="pasteButton" Click="ButtonPaste"></MenuItem>
+                </ContextMenu>
+            </Grid.ContextMenu>
+            <Label Name="secondScreen" FontFamily="Consolas" HorizontalContentAlignment="Right" Margin="10 10 12 10" Padding="0 4 4 0" Background="{StaticResource LabelBackgound}"></Label>
+            <Label Name="mainScreen" FontFamily="Consolas" FontSize="24" Foreground="#333333" BorderBrush="#A0A0A0" BorderThickness="1" Height="50" Margin="10 10 12 10" Padding="0 12 4 0" HorizontalContentAlignment="Right">
+                0
+            </Label>
+            <Label Name="messageScreen" FontSize="12" HorizontalContentAlignment="Right" Margin="10 10 12 10" Padding="0 26 4 0"></Label>
+            <Label Name="mContainer" FontFamily="Consolas" FontWeight="Thin" Foreground="#6B4747" FontSize="16" HorizontalAlignment="Left" Margin="10 10 12 10" Padding="6 24 0 0"></Label>
+        </Grid>
+        <Grid Height="194" Margin="10 -6 10 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="39.2" />
+                <ColumnDefinition Width="39.2" />
+                <ColumnDefinition Width="39.2" />
+                <ColumnDefinition Width="39.2" />
+                <ColumnDefinition Width="39.2" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32" />
+                <RowDefinition Height="32" />
+                <RowDefinition Height="32" />
+                <RowDefinition Height="32" />
+                <RowDefinition Height="32" />
+                <RowDefinition Height="32" />
+            </Grid.RowDefinitions>
+            <Button Click="ButtonMC" Grid.Row="0" Grid.Column="0" Focusable="False" Style="{StaticResource specialButtonsStyles}">MC</Button>
+            <Button Click="ButtonMR" Grid.Row="0" Grid.Column="1" Focusable="False" Style="{StaticResource specialButtonsStyles}">MR</Button>
+            <Button Click="ButtonMS" Grid.Row="0" Grid.Column="2" Focusable="False" Style="{StaticResource specialButtonsStyles}">MS</Button>
+            <Button Click="ButtonMPlus" Grid.Row="0" Grid.Column="3" Focusable="False" Style="{StaticResource specialButtonsStyles}">M+</Button>
+            <Button Click="ButtonMMinus" Grid.Row="0" Grid.Column="4" Focusable="False" Style="{StaticResource specialButtonsStyles}">M-</Button>
+            <Button Click="button_BackSpace" Grid.Row="1" Grid.Column="0" Focusable="False" Style="{StaticResource simpleButtonsStyles}">
+                <TextBlock Style="{StaticResource boldStyled}">←</TextBlock>
+            </Button>
+            <Button Click="button_CE" Grid.Row="1" Grid.Column="1" Focusable="False" Style="{StaticResource simpleButtonsStyles}">CE</Button>
+            <Button Click="button_C" Grid.Row="1" Grid.Column="2" Focusable="False" Style="{StaticResource simpleButtonsStyles}">C</Button>
+            <Button Click="ButtonNegative_Positive" Grid.Row="1" Grid.Column="3" Focusable="False" Style="{StaticResource simpleButtonsStyles}">±</Button>
+            <Button Click="ButtonSquareRoot" Grid.Row="1" Grid.Column="4" Focusable="False" Style="{StaticResource simpleButtonsStyles}">√</Button>
+            <Button Click="button_7" Grid.Row="2" Grid.Column="0" Focusable="False" Style="{StaticResource simpleButtonsStyles}">7</Button>
+            <Button Click="button_8" Grid.Row="2" Grid.Column="1" Focusable="False" Style="{StaticResource simpleButtonsStyles}">8</Button>
+            <Button Click="button_9" Grid.Row="2" Grid.Column="2" Focusable="False" Style="{StaticResource simpleButtonsStyles}">9</Button>
+            <Button Click="button_Divide" Grid.Row="2" Grid.Column="3" Focusable="False" Style="{StaticResource simpleButtonsStyles}">/</Button>
+            <Button Click="button_Percent" Grid.Row="2" Grid.Column="4" Focusable="False" Style="{StaticResource simpleButtonsStyles}">%</Button>
+            <Button Click="button_4" Grid.Row="3" Grid.Column="0" Focusable="False" Style="{StaticResource simpleButtonsStyles}">4</Button>
+            <Button Click="button_5" Grid.Row="3" Grid.Column="1" Focusable="False" Style="{StaticResource simpleButtonsStyles}">5</Button>
+            <Button Click="button_6" Grid.Row="3" Grid.Column="2" Focusable="False" Style="{StaticResource simpleButtonsStyles}">6</Button>
+            <Button Click="button_Multiply" Grid.Row="3" Grid.Column="3" Focusable="False" Style="{StaticResource simpleButtonsStyles}">*</Button>
+            <Button Click="button_Reciprocal" Grid.Row="3" Grid.Column="4" Focusable="False" Style="{StaticResource simpleButtonsStyles}">
+                <TextBlock>1/<TextBlock Style="{StaticResource italicX}">x</TextBlock></TextBlock>
+            </Button>
+            <Button Click="button_1" Grid.Row="4" Grid.Column="0" Focusable="False" Style="{StaticResource simpleButtonsStyles}">1</Button>
+            <Button Click="button_2" Grid.Row="4" Grid.Column="1" Focusable="False" Style="{StaticResource simpleButtonsStyles}">2</Button>
+            <Button Click="button_3" Grid.Row="4" Grid.Column="2" Focusable="False" Style="{StaticResource simpleButtonsStyles}">3</Button>
+            <Button Click="button_Minus" Grid.Row="4" Grid.Column="3" Focusable="False" Style="{StaticResource simpleButtonsStyles}">-</Button>
+            <Button Click="button_Equal" Grid.Row="4" Grid.Column="4" Focusable="False" Style="{StaticResource simpleButtonsStyles}"  Grid.RowSpan="2">
+                <TextBlock Style="{StaticResource boldStyled}">=</TextBlock>
+            </Button>
+            <Button Click="button_0" Grid.Row="5" Grid.Column="0" Focusable="False" Style="{StaticResource simpleButtonsStyles}" Grid.ColumnSpan="2">0</Button>
+            <Button Click="button_Comma" Grid.Row="5" Grid.Column="2" Focusable="False" Style="{StaticResource simpleButtonsStyles}">,</Button>
+            <Button Click="button_Plus" Grid.Row="5" Grid.Column="3" Focusable="False" Style="{StaticResource simpleButtonsStyles}">+</Button>
+        </Grid>
+    </StackPanel>
+</Window>
