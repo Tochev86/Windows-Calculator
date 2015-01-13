@@ -275,18 +275,24 @@
             </LinearGradientBrush>
         </StackPanel.Background>
         <Border BorderBrush="#AAAAAA" BorderThickness="1">
-            <WrapPanel Height="18">
-                <WrapPanel.Background>
+            <Menu Height="18" FontSize="12" FontFamily="Arial" FontWeight="Medium" Foreground="Black">
+                <Menu.Background>
                     <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                         <GradientStop Color="White" Offset="0.2"/>
                         <GradientStop Color="#d4dbed" Offset="0.5"/>
                         <GradientStop Color="White" Offset="1.8"/>
                     </LinearGradientBrush>
-                </WrapPanel.Background>
-                <Button Name="view" Style="{StaticResource menuButtonStyles}">View</Button>
-                <Button Name="edit" Style="{StaticResource menuButtonStyles}">Edit</Button>
-                <Button Name="help" Style="{StaticResource menuButtonStyles}">Help</Button>
-            </WrapPanel>
+                </Menu.Background>
+                <MenuItem Header="_View" Name="view">
+                    <MenuItem Header="not yet implemented"/>
+                </MenuItem>
+                <MenuItem Header="_Edit" Name="edit">
+                    <MenuItem Header="not yet implemented"/>
+                </MenuItem>
+                <MenuItem Header="_Help" Name="help">
+                    <MenuItem Header="not yet implemented"/>
+                </MenuItem>
+            </Menu>
         </Border>
         <Grid>
             <Grid.ContextMenu>
